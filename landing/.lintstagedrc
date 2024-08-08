@@ -1,0 +1,4 @@
+{
+  "**/*.{ts,tsx,js,jsx,cjs}": ["prettier --write"],
+  "**/*.{md,mdx,yml,json,babelrc,eslintrc,prettierrc}": ["prettier --write"]
+}

@@ -1,0 +1,1 @@
+export { applicationRouter } from "./router"
