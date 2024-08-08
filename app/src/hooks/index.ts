@@ -1,1 +1,1 @@
-export * from "./useLoginIn"
+export { default as useLoginIn } from "./useLoginIn"

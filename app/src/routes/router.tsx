@@ -7,11 +7,19 @@ import {
 import {
   Home
 } from "pages"
+import { ApplicationProvider } from "contexts";
 
 export const applicationRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <>
+      <ApplicationProvider>
+        <Home />
+      </ApplicationProvider>
+      
+      </>
+    )
   },
   {
     path: "about",

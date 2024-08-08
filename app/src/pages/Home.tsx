@@ -1,14 +1,17 @@
 import React from 'react'
 
-import { Header, HeadersProps } from "components";
+import { LayoutHome  } from 'layouts';
+import { useRoot } from 'contexts';
 
 export default function Home() {
-  const links: HeadersProps["links"] = [{ label: "ok", path: "/ok" }];
+  const { links} = useRoot() 
   return (
     <>
-      <div className='w-full h-full'>
-        <Header {...{ links }} />
-      </div>
+      <LayoutHome
+        {...{ links }}
+      >
+        <></>
+      </LayoutHome>
     </>
   )
 }

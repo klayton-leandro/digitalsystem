@@ -1,40 +1,31 @@
-import React, { useState, useContext } from "react";
-import { HeadersProps } from "components";
+import React, { useState, useContext } from 'react';
+import { HeadersProps } from 'components';
 
 type ApplicationContextProps = {
   isLoginIn: boolean;
-  links: HeadersProps["links"] | [];
+  links: HeadersProps['links'];
   setLoginStatus: (status: boolean) => void;
-  setLinks: (links: HeadersProps["links"]) => void;
+  setLinks: (links: HeadersProps['links']) => void;
 };
 
 const ApplicationContext = React.createContext<ApplicationContextProps>({
   isLoginIn: false,
-  links: [],
+  links: [{ label: '', path: '' }],
   setLoginStatus: () => {},
   setLinks: () => {}
 });
 
-export const ApplicationProvider: React.FC<React.PropsWithChildren<[]>> = ({
-  children,
-}) => {
+export const ApplicationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isLoginIn, setLoginStatus] = useState(false);
   const [links, setLinks] = useState<HeadersProps["links"]>([
-    {
-      label: "home",
-      path: "/home"
-    }
+    { label: 'Home', path: '/home' },
+    { label: 'Contato', path: '/contato' },
+    { label: 'Servicos', path: '/servicos' },
+    { label: 'Manutencao', path: '/manutencao' }
   ]);
 
   return (
-    <ApplicationContext.Provider
-      value={{
-        isLoginIn,
-        links,
-        setLoginStatus,
-        setLinks
-      }}
-    >
+    <ApplicationContext.Provider value={{ isLoginIn, links, setLoginStatus, setLinks }}>
       {children}
     </ApplicationContext.Provider>
   );
